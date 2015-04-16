@@ -1,2 +1,4 @@
-# dotfiles
-Configurations, etc.
+dotfiles
+===
+
+Configurations for various things.

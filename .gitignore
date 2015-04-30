@@ -1,2 +1,8 @@
-# vim
+# Sandbox directory that I sometimes use for certain project resources
+sandbox/
+
+# virtualenv environment for Python projects
+venv/
+
+# vim swap files, please don't commit these...
 *.swp

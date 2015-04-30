@@ -30,11 +30,11 @@ stty -ixon
 #### customizations
 
 # include standard executable paths and libraries
-PATH=$PATH:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export PATH=$PATH:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # editor
-EDITOR=vim
+export EDITOR=vim
 
 
 #### handy aliases

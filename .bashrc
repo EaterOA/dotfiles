@@ -36,6 +36,9 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 # editor
 export EDITOR=vim
 
+# language
+export LC_ALL=en_US.UTF-8
+
 
 #### handy aliases
 

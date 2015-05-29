@@ -2,7 +2,8 @@
 set nu
 
 " indenting based on language
-set smartindent
+set autoindent
+filetype plugin indent on
 
 " 4 space indentation
 set expandtab

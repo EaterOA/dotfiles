@@ -1,0 +1,13 @@
+import readline
+import os
+import atexit
+
+# Read history
+histfile = os.path.expanduser("~/.python_history")
+if os.path.exists(histfile):
+    readline.read_history_file(histfile)
+atexit.register(readline.write_history_file, histfile)
+
+# Turn off tab completion. Yes, I'm one of those people
+readline.parse_and_bind("set disable-completion on")  
+readline.parse_and_bind("tab: self-insert")

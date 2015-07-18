@@ -42,6 +42,14 @@ export EDITOR=vim
 # language
 export LC_ALL=en_US.UTF-8
 
+# python REPL config
+PYTHONSTARTUP="$HOME/.pythonrc"
+if [ -f "$PYTHONSTARTUP" ]; then
+    export PYTHONSTARTUP
+else
+    unset PYTHONSTARTUP
+fi
+
 
 #### handy aliases
 
@@ -63,10 +71,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# python REPL config
-PYTHONSTARTUP="$HOME/.pythonrc"
-if [ -f "$PYTHONSTARTUP" ]; then
-    export PYTHONSTARTUP
-else
-    unset PYTHONSTARTUP
-fi
+# url encode/decode
+alias urlencode='python -c "import sys, urllib as u; sys.stdout.write(u.quote(sys.stdin.read(), \"/\n\"))"'
+alias urldecode='python -c "import sys, urllib as u; sys.stdout.write(u.unquote(sys.stdin.read()))"'

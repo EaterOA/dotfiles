@@ -50,6 +50,12 @@ else
     unset PYTHONSTARTUP
 fi
 
+# git completion
+GITCOMPLETION="$HOME/.git-completion.bash"
+if [ -f "$GITCOMPLETION" ]; then
+    source "$GITCOMPLETION"
+fi
+
 
 #### handy aliases
 

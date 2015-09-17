@@ -27,7 +27,7 @@ xterm*|rxvt*)
 esac
 
 # turn off terminal start/stop signaling (C-s, C-q)
-stty -ixon
+stty -ixon 2>/dev/null
 
 
 #### customizations

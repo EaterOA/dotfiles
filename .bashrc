@@ -80,3 +80,11 @@ alias egrep='egrep --color=auto'
 # url encode/decode
 alias urlencode='python -c "import sys, urllib as u; sys.stdout.write(u.quote(sys.stdin.read(), \"/\n\"))"'
 alias urldecode='python -c "import sys, urllib as u; sys.stdout.write(u.unquote(sys.stdin.read()))"'
+
+
+##### machine local settings
+
+BASHRC_LOCAL="$HOME/.bashrc_local"
+if [ -f "$BASHRC_LOCAL" ]; then
+    source "$BASHRC_LOCAL"
+fi

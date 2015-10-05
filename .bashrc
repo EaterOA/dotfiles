@@ -62,6 +62,9 @@ fi
 # cd while expanding symlinks
 alias pcd="cd -P"
 
+# dig without all the default crap
+alias qdig="dig +noall +answer +multiline"
+
 # copy from stdin or file into X clipboard
 alias copy="xclip -sel clip"
 

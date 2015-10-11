@@ -26,3 +26,12 @@ command W w
 """ first tap: complete to longest possible match
 """ second+ tap: list autocomplete options
 set wildmode=longest,list
+
+" incremental search while entering search terms
+set incsearch
+
+" highlight search matches
+set hlsearch
+
+" highlight matching parentheses/braces/etc
+set showmatch

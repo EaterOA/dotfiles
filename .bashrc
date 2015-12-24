@@ -14,13 +14,45 @@ HISTFILESIZE=2000
 # of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# set prompt text
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# set prompt text to user@host:abspath
+# the abspath will automatically collapse ancestor directory names when it is
+# longer than PROMPT_PATH_LIMIT
+PROMPT_PATH_LIMIT=40
+updatePromptPath() {
+    promptPath=${PWD/"$HOME"/"~"}
+    if [ ${#promptPath} -gt $PROMPT_PATH_LIMIT ]; then
+        promptPath=$(awk                    \
+            <<< "$promptPath"               \
+            -F "/"                          \
+            -v OFS="/"                      \
+            -v limit="$PROMPT_PATH_LIMIT"   \
+            '{
+                promptPath = $0
+                if (NF > 2) {
+                    base = $1 "/.../"
+                    $1=""
+                    for (i = 2; i < NF && length(promptPath) > limit; i++) {
+                        $i=""
+                        promptPath = base $0
+                    }
+                    gsub(/\/+/, "/", promptPath)
+                }
+                print promptPath
+            }'
+        )
+    fi
+}
+if [ -z "$PROMPT_COMMAND" ]; then
+    PROMPT_COMMAND="updatePromptPath"
+else
+    PROMPT_COMMAND="$PROMPT_COMMAND; updatePromptPath"
+fi
+PS1='\u@\h:$promptPath\$ '
 
-# if this is an xterm, set title to user@host:dir
+# if this is an xterm, also set title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;\u@\h:\w\a\]$PS1"
     ;;
 *)
     ;;

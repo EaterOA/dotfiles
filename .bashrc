@@ -113,8 +113,8 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # url encode/decode
-alias urlencode='python -c "import sys, urllib as u; sys.stdout.write(u.quote(sys.stdin.read(), \"/\n\"))"'
-alias urldecode='python -c "import sys, urllib as u; sys.stdout.write(u.unquote(sys.stdin.read()))"'
+alias urlencode='python2 -c "import sys, urllib as u; sys.stdout.write(u.quote(sys.stdin.read(), \"/\n\"))"'
+alias urldecode='python2 -c "import sys, urllib as u; sys.stdout.write(u.unquote(sys.stdin.read()))"'
 
 
 ##### machine local settings

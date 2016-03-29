@@ -82,6 +82,9 @@ else
     unset PYTHONSTARTUP
 fi
 
+# python additional libs
+PYTHONPATH="$PYTHONPATH:$HOME/.local/lib/"
+
 # git completion
 GITCOMPLETION="$HOME/.git-completion.bash"
 if [ -f "$GITCOMPLETION" ]; then

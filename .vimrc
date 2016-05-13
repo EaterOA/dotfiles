@@ -23,6 +23,10 @@ au! FileType python inoremap # X#
 " map :W to :w
 command W w
 
+" disable man page search
+" useless to me, and annoying as hell when visual lining
+map <S-k> <Nop>
+
 " change tab-complete behavior
 """ first tap: complete to longest possible match
 """ second+ tap: list autocomplete options
@@ -36,3 +40,7 @@ set hlsearch
 
 " highlight matching parentheses/braces/etc
 set showmatch
+
+" no need for Ex mode
+map q: <Nop>
+nnoremap Q <nop>

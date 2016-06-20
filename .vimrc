@@ -44,3 +44,7 @@ set showmatch
 " no need for Ex mode
 map q: <Nop>
 nnoremap Q <nop>
+
+" try ignorecase
+set ignorecase
+set smartcase

@@ -1,9 +1,11 @@
 [user]
-	name = Vincent Wong
-	email = duperduper@ucla.edu
+    name = Vincent Wong
+    email = duperduper@ucla.edu
 [color]
-	ui = auto
+    ui = auto
 [push]
-	default = simple
+    default = simple
 [core]
     excludesfile = "~/.gitignore"
+[pull]
+    rebase = true

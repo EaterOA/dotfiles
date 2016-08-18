@@ -1,5 +1,7 @@
-" line numbers
-set nu
+" relative line numbers
+set relativenumber
+" but absolute on selected line
+set number
 
 " indenting based on language
 set autoindent
@@ -45,6 +47,15 @@ set showmatch
 map q: <Nop>
 nnoremap Q <nop>
 
-" try ignorecase
+" ignore case when searching
 set ignorecase
+" unless you have capitalized letters
 set smartcase
+
+" absolute line number in insert mode
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
+" map ctrl-c to escape in insert mode
+imap <C-c> <Esc>

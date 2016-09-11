@@ -23,7 +23,10 @@ set background=dark
 au! FileType python inoremap # X#
 
 " map :W to :w
-command W w
+cabbrev W w
+
+" map :X to :x
+cabbrev X x
 
 " disable man page search
 " useless to me, and annoying as hell when visual lining

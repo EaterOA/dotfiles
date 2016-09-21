@@ -62,7 +62,9 @@ autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
 
 " map ctrl-c to escape
-noremap <C-c> <Esc>
+inoremap <C-c> <Esc>
+nnoremap <C-c> <Esc>
+vnoremap <C-c> <Esc>
 
 
 """""" machine local settings

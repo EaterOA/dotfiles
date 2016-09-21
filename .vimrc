@@ -3,6 +3,9 @@ set relativenumber
 " but absolute on selected line
 set number
 
+" backspace over everything in insert mode
+set backspace=indent,eol,start
+
 " indenting based on language
 set autoindent
 filetype plugin indent on
@@ -22,11 +25,10 @@ set background=dark
 " prevent smartindent from unindenting comments
 au! FileType python inoremap # X#
 
-" map :W to :w
+" map :W to :w (just a convenience)
 cabbrev W w
-
-" map :X to :x
-cabbrev X x
+" map :X to :x (_never_ encrypt using vim)
+cabbrev X <Nop>
 
 " disable man page search
 " useless to me, and annoying as hell when visual lining
@@ -47,8 +49,7 @@ set hlsearch
 set showmatch
 
 " no need for Ex mode
-map q: <Nop>
-nnoremap Q <nop>
+map Q <nop>
 
 " ignore case when searching
 set ignorecase
@@ -60,5 +61,12 @@ set smartcase
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber
 
-" map ctrl-c to escape in insert mode
-imap <C-c> <Esc>
+" map ctrl-c to escape
+noremap <C-c> <Esc>
+
+
+"""""" machine local settings
+
+if filereadable(expand("~/.vimrc_local"))
+  source ~/.vimrc_local
+endif

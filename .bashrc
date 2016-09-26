@@ -61,6 +61,9 @@ esac
 # turn off terminal start/stop signaling (C-s, C-q)
 stty -ixon 2>/dev/null
 
+# allow completion after sudo
+complete -cf sudo
+
 
 #### customizations
 

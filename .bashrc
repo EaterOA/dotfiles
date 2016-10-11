@@ -7,8 +7,16 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=20000
+
+# add every line to history
+# the :+ thing is Parameter Expansion in bash(1)
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a"
+
+# if you want every terminal to immediately see other terminals’ updates,
+# uncomment this (I prefer each terminal to have its own context)
+#PROMPT_COMMAND = "${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -c; history -r"
 
 # check the window size after each command and, if necessary, update the values
 # of LINES and COLUMNS.
@@ -42,11 +50,7 @@ updatePromptPath() {
         )
     fi
 }
-if [ -z "$PROMPT_COMMAND" ]; then
-    PROMPT_COMMAND="updatePromptPath"
-else
-    PROMPT_COMMAND="$PROMPT_COMMAND; updatePromptPath"
-fi
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}updatePromptPath"
 PS1='\u@\h:$promptPath\$ '
 
 # if this is an xterm, also set title to user@host:dir

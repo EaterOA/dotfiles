@@ -7,3 +7,4 @@ venv3/
 
 # vim swap files, please don't commit these...
 *.swp
+*.swo

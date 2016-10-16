@@ -45,6 +45,9 @@ set incsearch
 " highlight search matches
 set hlsearch
 
+" disable showmatch
+set noshowmatch
+
 " no need for Ex mode
 map Q <nop>
 

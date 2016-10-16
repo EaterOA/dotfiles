@@ -45,9 +45,6 @@ set incsearch
 " highlight search matches
 set hlsearch
 
-" highlight matching parentheses/braces/etc
-set showmatch
-
 " no need for Ex mode
 map Q <nop>
 

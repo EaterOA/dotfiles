@@ -53,12 +53,17 @@ updatePromptPath() {
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}updatePromptPath"
 PS1='\u@\h:$promptPath\$ '
 
-# if this is an xterm, also set title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+  # if this is an xterm, also set title to user@host:dir
+  xterm*|rxvt*)
     PS1="\[\e]0;\u@\h:\w\a\]$PS1"
     ;;
-*)
+  # if GNU screen, set window title to pwd basename
+  # (also works with tmux)
+  screen*)
+    PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}"'printf "\033k`basename $promptPath`\033\134"'
+    ;;
+  *)
     ;;
 esac
 

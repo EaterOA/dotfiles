@@ -66,6 +66,13 @@ inoremap <C-c> <Esc>
 nnoremap <C-c> <Esc>
 vnoremap <C-c> <Esc>
 
+" read local vimrc
+let b:thisdir=expand("%:p:h")
+let b:vim=b:thisdir."/.vim.custom"
+if (filereadable(b:vim))
+    execute "source ".b:vim
+endif
+
 
 """""" machine local settings
 

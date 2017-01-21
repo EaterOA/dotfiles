@@ -115,6 +115,9 @@ alias qdig="dig +noall +answer +multiline"
 # copy from stdin or file into X clipboard
 alias copy="xclip -sel clip"
 
+# default-app open
+alias open="xdg-open"
+
 # activate python virtualenv
 activate_venv() {
     source "$1/bin/activate"

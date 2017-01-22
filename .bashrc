@@ -76,9 +76,15 @@ complete -cf sudo
 
 #### customizations
 
-# include standard executable paths and libraries
+# include standard executable paths
 export PATH=$PATH:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+# include typical shared lib locations
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:
+# strip leading/trailing colon, which causes PWD to be searched uselessly
+LD_LIBRARY_PATH=${LD_LIBRARY_PATH#:}
+LD_LIBRARY_PATH=${LD_LIBRARY_PATH%:}
+export LD_LIBRARY_PATH
 
 # editor
 export EDITOR=vim

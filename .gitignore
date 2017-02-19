@@ -2,9 +2,11 @@
 sandbox/
 
 # virtualenv environment for Python projects
+env/
 venv/
 venv3/
 
-# vim swap files, please don't commit these...
+# vim stuff
 *.swp
 *.swo
+*.vim.custom

@@ -77,7 +77,7 @@ complete -cf sudo
 #### customizations
 
 # include standard executable paths
-export PATH=$PATH:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+export PATH=$PATH:$HOME/.local/bin:/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
 
 # include typical shared lib locations
 LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:

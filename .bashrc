@@ -142,6 +142,11 @@ alias urldecode='python2 -c "import sys, urllib as u; sys.stdout.write(u.unquote
 alias htmlencode='python3 -c "import sys, html as h; sys.stdout.write(h.escape(sys.stdin.read()))"'
 alias htmldecode='python3 -c "import sys, html as h; sys.stdout.write(h.unescape(sys.stdin.read()))"'
 
+# rot13
+rot13() {
+    tr 'A-Za-z' 'N-ZA-Mn-za-m'
+}
+
 
 ##### machine local settings
 

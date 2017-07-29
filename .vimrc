@@ -66,11 +66,17 @@ inoremap <C-c> <Esc>
 nnoremap <C-c> <Esc>
 vnoremap <C-c> <Esc>
 
+" start at line you last exited file from
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 " read local vimrc
 let b:thisdir=expand("%:p:h")
 let b:vim=b:thisdir."/.vim.custom"
 if (filereadable(b:vim))
-    execute "source ".b:vim
+  execute "source ".b:vim
 endif
 
 

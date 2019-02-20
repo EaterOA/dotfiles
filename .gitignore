@@ -10,3 +10,4 @@ venv3/
 *.swp
 *.swo
 *.vim.custom
+cscope.out

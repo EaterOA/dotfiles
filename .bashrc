@@ -150,6 +150,16 @@ rot13() {
     tr 'A-Za-z' 'N-ZA-Mn-za-m'
 }
 
+# generating a base64 string
+genkey64() {
+  if [ -z "$1" ]; then
+    arg=16
+  else
+    arg="$1"
+  fi
+  head -c "$arg" </dev/urandom | base64
+}
+
 
 ##### machine local settings
 

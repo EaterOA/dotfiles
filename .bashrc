@@ -160,6 +160,9 @@ genkey64() {
   head -c "$arg" </dev/urandom | base64
 }
 
+# handles weird bug in some systems where view is symlinked to vi
+alias view="vim -R"
+
 
 ##### machine local settings
 

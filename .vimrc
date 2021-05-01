@@ -102,13 +102,6 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 
-" read local vimrc
-let b:thisdir=expand("%:p:h")
-let b:vim=b:thisdir."/.vim.custom"
-if (filereadable(b:vim))
-  execute "source ".b:vim
-endif
-
 
 """""" machine local settings
 

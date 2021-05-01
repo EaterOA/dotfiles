@@ -118,9 +118,6 @@ fi
 
 #### handy aliases
 
-# cd while expanding symlinks
-alias pcd="cd -P"
-
 # dig without all the default crap
 alias qdig="dig +noall +answer +multiline"
 
@@ -143,8 +140,8 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # url encode/decode
-alias urlencode='python2 -c "import sys, urllib as u; sys.stdout.write(u.quote(sys.stdin.read(), \"/\n\"))"'
-alias urldecode='python2 -c "import sys, urllib as u; sys.stdout.write(u.unquote(sys.stdin.read()))"'
+alias urlencode='python3 -c "import sys, urllib.parse as u; sys.stdout.write(u.quote(sys.stdin.read(), \"/\n\"))"'
+alias urldecode='python3 -c "import sys, urllib.parse as u; sys.stdout.write(u.unquote(sys.stdin.read()))"'
 alias htmlencode='python3 -c "import sys, html as h; sys.stdout.write(h.escape(sys.stdin.read()))"'
 alias htmldecode='python3 -c "import sys, html as h; sys.stdout.write(h.unescape(sys.stdin.read()))"'
 

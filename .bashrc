@@ -1,5 +1,8 @@
 ##### terminal settings
 
+# history with time
+HISTTIMEFORMAT="%d/%m/%y %T "
+
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 

@@ -1,7 +1,39 @@
-" relative line numbers
-set relativenumber
-" but absolute on selected line
-set number
+"---------------------------------------------------------------
+" numbering stuff
+"
+" I use a numbering scheme adapted from:
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+"
+" As a proxy for determining whether our scheme should be on or not, we use
+" our own "relnum" and "nonum" variables
+let s:relnum=1
+let s:nonum=0
+
+function EvaluateNumbering()
+    if s:nonum
+        set norelativenumber
+        set nonumber
+    else
+        set number
+        if s:relnum
+            set relativenumber
+        else
+            set norelativenumber
+        endif
+    endif
+endfunction
+
+call EvaluateNumbering()
+
+" absolute line number in insert mode
+autocmd WinLeave,InsertEnter * :let s:relnum=0 | call EvaluateNumbering()
+autocmd WinEnter,InsertLeave * :let s:relnum=1 | call EvaluateNumbering()
+
+" define commands for toggling number and relative number
+command InvNu let s:nonum=!s:nonum | call EvaluateNumbering()
+map <C-n> :InvNu<CR>
+
+"---------------------------------------------------------------
 
 " backspace over everything in insert mode
 set backspace=indent,eol,start
@@ -55,11 +87,6 @@ map Q <nop>
 set ignorecase
 " unless you have capitalized letters
 set smartcase
-
-" absolute line number in insert mode
-" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
-autocmd InsertEnter * :set norelativenumber
-autocmd InsertLeave * :set relativenumber
 
 " map ctrl-c to escape
 inoremap <C-c> <Esc>

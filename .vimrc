@@ -80,6 +80,9 @@ set hlsearch
 " disable showmatch
 set noshowmatch
 
+" inc/dec only regular or hex
+set nrformats=hex
+
 " no need for Ex mode
 map Q <nop>
 
